@@ -1,31 +1,17 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.math.BigInteger;
 
-class Main {
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static BigInteger big;
+public class Main {
 
     public static void main(String[] args) throws IOException {
-        int n = Integer.parseInt(br.readLine());
-        big = new BigInteger(n + "");
-
-        for(int i = n - 1; i >= 1; i--) {
-            big = big.multiply(BigInteger.valueOf(i));
-        }
-
-        String s = big.toString();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+        
         int count = 0;
-        if (!s.equals("0")) {
-            for(int i = s.length() - 1; i >= 0; i--) {
-                if(s.charAt(i) == '0') {
-                    count++;
-                }
-                else {
-                    break;
-                }
-            }
+        while (N > 0) {
+            count += N / 5;
+            N /= 5;
         }
         System.out.println(count);
     }
